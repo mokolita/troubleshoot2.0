@@ -1,3 +1,5 @@
+import { checkStatus } from './checkStatus'
+
 export function fetchUser(user) {
     return (dispatch) => {
        dispatch({type: 'START_ADDING_USER' })
@@ -15,5 +17,8 @@ export function fetchUser(user) {
         .then(user => dispatch({type: 'ADD_USER', user}))
   
     }}
+
+
+    //Do i need to store the token in user state?
 
    

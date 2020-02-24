@@ -1,6 +1,6 @@
 
- checkStatus =(res) =>{
-        
+ async checkStatus =(res) =>{
+    let token   
     if(res.status == 401){
         this.token = null
         const msg = await res.json()

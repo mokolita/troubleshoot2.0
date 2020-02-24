@@ -1,0 +1,3 @@
+[submodule "ts-backend"]
+	path = ts-backend
+	url = github.com:mokolita/ts-backend.git
