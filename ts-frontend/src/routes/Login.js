@@ -1,35 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchUser } from '../actions/fetchUser'
+import { userActions } from '../_actions';
+
 import '../styles/main.css'
 import '../styles/style.css'
  
 
  class Login extends React.Component {
-    constructor(props){
-      super(props)
-      this.state = {
+  constructor(props) {
+    super(props);
+
+    // reset login status
+    this.props.logout();
+
+    this.state = {
         email: '',
-        password: ''
-      }
+        password: '',
+        submitted: false
+    };
 
-      // this.handleChange = this.handleChange.bind(this);
-      // this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+}
 
-  async handleSubmit(e){
-    e.preventDefault()
-    const [email, password] = Array.from(e.target.querySelectorAll('input')).map(i => i.value)
-    const params = {
-        user: {email, password}
-    }
-    console.log(params)
-    
-    try{
-     console.log(this.props.fetchUser(params))
-    }catch(err){
-      console.log(err)
-      //this.handleError(err)
+handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+}
+
+handleSubmit(e) {
+    e.preventDefault();
+
+    this.setState({ submitted: true });
+    const { email, password } = this.state;
+    if (email && password) {
+        this.props.login(email, password);
     }
 }
 
@@ -68,10 +73,14 @@ import '../styles/style.css'
     )}
   }
 
-  const mapStateToProps = ({user}) => ({user})
+  function mapState(state) {
+    const { loggingIn } = state.authentication;
+    return { loggingIn };
+}
 
-  const mapDispatchToProps = (dispatch) => {
-    return {fetchUser: (params) => dispatch(fetchUser(params))}
-  }
+const actionCreators = {
+    login: userActions.login,
+    logout: userActions.logout
+};
 
-  export default connect(mapStateToProps, mapDispatchToProps)(Login)
+  export default connect(mapState, actionCreators)(Login)

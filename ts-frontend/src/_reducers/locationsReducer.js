@@ -1,4 +1,4 @@
-const locationsReducer = (state = {locations: [], requesting: false}, action) => {
+export const locationsReducer = (state = {locations: [], requesting: false}, action) => {
     let index
     switch(action.type){
         case "START_ADDING_LOCATIONS":
@@ -20,5 +20,3 @@ const locationsReducer = (state = {locations: [], requesting: false}, action) =>
             return state
     }
 }
-
-export default locationsReducer
