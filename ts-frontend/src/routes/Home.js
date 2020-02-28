@@ -21,7 +21,7 @@ class Home extends React.Component {
     return(
       <div style={styling}>
         <NavbarContainer />
-        <LocationsContainer locations={this.props.locations.locations}/>
+        <LocationsContainer locations={this.props.locations.locations} />
         <MapsContainer />
       </div>
     )

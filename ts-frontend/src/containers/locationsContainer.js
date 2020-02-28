@@ -10,7 +10,8 @@ const styling = {
 export default class LocationsContainer extends Component {
  
     render() {
-        const mappedLocations = this.props.locations.map(loc => 
+
+        const mappedLocations =  this.props.locations.map(loc => 
         <Location key={loc.id} name={loc.name} content={loc.content} user={loc.user.first_name}/>
         )
 
