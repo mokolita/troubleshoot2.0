@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import NavbarContainer from './containers/navbarContainer'
@@ -7,6 +7,7 @@ import Home from './routes/Home'
 import Profile from './routes/Profile'
 import Login from './routes/Login'
 import Signup from './routes/Register'
+import locationForm from './_components/locationForm'
 import { history } from './_helpers';
 import { alertActions } from './_actions';
 import { PrivateRoute } from './_components'
@@ -38,6 +39,7 @@ class App extends React.Component {
             <PrivateRoute exact path='/profile' component={Profile} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
+            <Route path='/locations/:locationID' component={locationForm}/>
             <Redirect from="*" to="/" />
             </Switch>
         </div>

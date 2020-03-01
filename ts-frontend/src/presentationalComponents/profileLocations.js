@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import placeholder from '../styles/images/bg-01.jpg'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 
 const styling = {
     margin: '10px',
@@ -25,8 +25,18 @@ export default class ProfileLocation extends Component{
         return(
             <div style={styling}>
                 <h3>{this.props.name}</h3>
-                <Router path='/locations' />
-                <Link to={`/${this.props.id}`}>Update</Link>                
+                <Link to={{
+                    pathname: `locations/${this.props.id}`,
+                    state: {
+                        id: this.props.id,
+                        name: this.props.name,
+                        content: this.props.content,
+                        address: null,
+                        user_id: this.props.user_id
+                    }
+                }} >
+                Update
+                </Link>
                 <img src={placeholder} alt='' style={imgStyling}></img>
                 <p>{this.props.content}</p>
             </div>
