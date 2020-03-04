@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/style.css'
 import logo from '../styles/images/Troubleshoot (3).png'
+import {logoutUser} from '../actions/userActions'
 
 const link = {
     float: 'left',
@@ -28,6 +29,10 @@ export default class NavbarContainer extends Component {
     //     this.setState({hover: true})
     //     this.link()
     // }
+
+    handleClick = (e) => {
+
+    }
 
 
    
@@ -80,8 +85,13 @@ export default class NavbarContainer extends Component {
               //onMouseEnter={this.toggleHover}
               //onMouseLeave={this.toggleHover}
             >Signup</NavLink>
+            <NavLink onClick={this.handleClick}>Log Out</NavLink>
           </div>
         </>
         )
       }
     }
+
+    const mapDispatchToProps = dispatch => ({
+      logoutUser: () => dispatch(logoutUser())
+    })

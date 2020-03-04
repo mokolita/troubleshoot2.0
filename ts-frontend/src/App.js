@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-
 import NavbarContainer from './containers/navbarContainer'
 import Home from './routes/Home'
 import Profile from './routes/Profile'
@@ -9,8 +8,8 @@ import Login from './routes/Login'
 import Signup from './routes/Register'
 import locationForm from './_components/locationForm'
 import { history } from './_helpers';
-import { alertActions } from './_actions';
 import { PrivateRoute } from './_components'
+import {logoutUser} from './actions/userActions'
 
 
 const body ={
@@ -20,13 +19,12 @@ const body ={
 }
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    history.listen((location, action) => {
-        this.props.clearAlerts();
-    });
-}
+  
+  handleClick = event => {
+    event.preventDefault()
+    localStorage.removeItem("token")
+    this.props.logoutUser()
+    }
   
  render(){
   return (
@@ -42,20 +40,20 @@ class App extends React.Component {
             <Route path='/locations/:locationID' component={locationForm}/>
             <Redirect from="*" to="/" />
             </Switch>
+            <button onClick={this.handleOnClick}>Log Out</button>
         </div>
 
       </Router>
    </>
   );
-}
-}
-function mapState(state) {
-  const { alert } = state;
-  return { alert };
-}
+}}
 
-const actionCreators = {
-  clearAlerts: alertActions.clear
-};
 
-export default connect(mapState, actionCreators)(App)
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(logoutUser())
+})
+
+export default connect(null, mapDispatchToProps)(App);
+
+
+

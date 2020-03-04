@@ -24,16 +24,16 @@ class Profile extends React.Component {
   }
 
   render() {
-   
-    
-    const mappedUserLocations = this.props.user.locations.map(l =>
-       <Location name={l.name} 
-        id={l.id} 
-        key={l.id} 
-        content={l.content} 
-        user_id={this.props.user.id}
-        updateLocation={this.updateLocation}/> 
-       )
+    const mappedUserLocations = console.log(this.props.users)
+    // .map(l =>
+    //    <Location name={l.name} 
+    //     id={l.id} 
+    //     key={l.id} 
+    //     content={l.content}
+    //     address={l.address} 
+    //     user_id={this.props.user.id}
+    //     updateLocation={this.updateLocation}/> 
+    //    )
 
     return <div style={styling}>
       <button>Add New Location</button>
@@ -43,13 +43,7 @@ class Profile extends React.Component {
  
 }
 
-const mapState = (state) => {
-  return{
-    user: state.authentication.user,
-    updating: false
-  }
-  
-}
+const mapState = ({users}) => ({users})
 
  
 export default connect(mapState)(Profile)

@@ -1,42 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux'
-import { userActions } from '../_actions';
-
-import '../styles/main.css'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {userLoginFetch} from '../actions/userActions';
 import '../styles/style.css'
- 
+import '../styles/main.css'
 
- class Login extends React.Component {
-  constructor(props) {
-    super(props);
 
-    // reset login status
-    this.props.logout();
+class Login extends Component {
+  state = {
+    email: "",
+    password: ""
+  }
 
-    this.state = {
-        email: '',
-        password: '',
-        submitted: false
-    };
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-}
-
-handleChange(e) {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-}
-
-handleSubmit(e) {
-    e.preventDefault();
-
-    this.setState({ submitted: true });
-    const { email, password } = this.state;
-    if (email && password) {
-        this.props.login(email, password);
-    }
-}
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.userLoginFetch(this.state)
+  }
 
   render() {
     return( 
@@ -73,14 +57,15 @@ handleSubmit(e) {
     )}
   }
 
-  function mapState(state) {
-    const { loggingIn } = state.authentication;
-    return { loggingIn };
-}
 
-const actionCreators = {
-    login: userActions.login,
-    logout: userActions.logout
-};
+const mapDispatchToProps = dispatch => ({
+  userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+})
 
-  export default connect(mapState, actionCreators)(Login)
+export default connect(null, mapDispatchToProps)(Login);
+
+  
+
+
+
+  

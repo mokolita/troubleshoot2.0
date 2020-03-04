@@ -31,7 +31,7 @@ export default class ProfileLocation extends Component{
                         id: this.props.id,
                         name: this.props.name,
                         content: this.props.content,
-                        address: null,
+                        address: this.props.address,
                         user_id: this.props.user_id
                     }
                 }} >

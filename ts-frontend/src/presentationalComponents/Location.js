@@ -27,6 +27,7 @@ export default class Location extends Component{
                     <p style={userStyling}>Posted by: {this.props.user}</p>
                 
                 <img src={placeholder} alt='' style={imgStyling}></img>
+                <p>{this.props.address}</p>
                 <p>{this.props.content}</p>
             </div>
         )

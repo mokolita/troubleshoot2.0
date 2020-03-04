@@ -17,12 +17,11 @@ class Home extends React.Component {
   }
   render() {
     
-
     return(
       <div style={styling}>
         <NavbarContainer />
         <LocationsContainer locations={this.props.locations.locations} />
-        <MapsContainer />
+        <MapsContainer locations={this.props.locations.locations}/>
       </div>
     )
   }
@@ -31,7 +30,7 @@ class Home extends React.Component {
 const mapStateToProps = ({ locations }) => ({ locations })
 
 const mapDispatchToProps = (dispatch) => {
-  return {fetchLocations: () => dispatch(fetchLocations())}
+  return {fetchLocations: () =>  dispatch(fetchLocations())}
 }
  
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
