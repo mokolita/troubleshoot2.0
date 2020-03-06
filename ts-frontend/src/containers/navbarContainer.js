@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import '../styles/style.css'
 import logo from '../styles/images/Troubleshoot (3).png'
 import {logoutUser} from '../actions/userActions'
+import { connect } from 'react-redux'
 
 const link = {
     float: 'left',
@@ -17,7 +18,7 @@ const link = {
 
 
 
-export default class NavbarContainer extends Component {
+class NavbarContainer extends Component {
     // constructor(props){
     //     super(props)
     //     this.state = {
@@ -31,7 +32,9 @@ export default class NavbarContainer extends Component {
     // }
 
     handleClick = (e) => {
-
+      e.preventDefault()
+      localStorage.removeItem('token')
+      this.props.logoutUser()
     }
 
 
@@ -85,7 +88,14 @@ export default class NavbarContainer extends Component {
               //onMouseEnter={this.toggleHover}
               //onMouseLeave={this.toggleHover}
             >Signup</NavLink>
-            <NavLink onClick={this.handleClick}>Log Out</NavLink>
+            <NavLink exact to="/" 
+            onClick={this.handleClick} 
+            style={link}
+            // activeStyle={{
+            //   backgroundColor: '#501b1d',
+            //   color: '#dbaa5c'
+            // }}
+            className='link link-style'>Log Out</NavLink>
           </div>
         </>
         )
@@ -95,3 +105,5 @@ export default class NavbarContainer extends Component {
     const mapDispatchToProps = dispatch => ({
       logoutUser: () => dispatch(logoutUser())
     })
+
+    export default connect(null, mapDispatchToProps)(NavbarContainer)

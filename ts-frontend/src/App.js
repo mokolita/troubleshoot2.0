@@ -40,7 +40,7 @@ class App extends React.Component {
             <Route path='/locations/:locationID' component={locationForm}/>
             <Redirect from="*" to="/" />
             </Switch>
-            <button onClick={this.handleOnClick}>Log Out</button>
+            
         </div>
 
       </Router>

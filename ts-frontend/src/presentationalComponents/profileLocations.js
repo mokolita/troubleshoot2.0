@@ -25,7 +25,9 @@ export default class ProfileLocation extends Component{
         return(
             <div style={styling}>
                 <h3>{this.props.name}</h3>
-                <Link to={{
+                <div className="container-contact3-form-btn">
+                <Link className="contact3-form-btn"
+                to={{
                     pathname: `locations/${this.props.id}`,
                     state: {
                         id: this.props.id,
@@ -37,6 +39,7 @@ export default class ProfileLocation extends Component{
                 }} >
                 Update
                 </Link>
+                </div>
                 <img src={placeholder} alt='' style={imgStyling}></img>
                 <p>{this.props.content}</p>
             </div>

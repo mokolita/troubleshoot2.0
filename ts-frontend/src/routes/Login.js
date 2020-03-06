@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import {userLoginFetch} from '../actions/userActions';
 import '../styles/style.css'
 import '../styles/main.css'
@@ -8,7 +9,7 @@ import '../styles/main.css'
 class Login extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
   }
 
   handleChange = event => {
@@ -20,9 +21,11 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.userLoginFetch(this.state)
+    .then(() => this.props.history.push('/profile'))
   }
 
   render() {
+   
     return( 
     <div>
         <div className="bg-contact3">
@@ -62,7 +65,7 @@ const mapDispatchToProps = dispatch => ({
   userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login))
 
   
 

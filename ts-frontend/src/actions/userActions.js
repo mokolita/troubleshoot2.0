@@ -38,7 +38,7 @@ export const userPostFetch = user => {
         .then(resp => {
             return(
             localStorage.setItem('token', resp.headers.get('authorization')),
-            resp.json()
+           resp.json()
             )})
         .then(data => {
           if (data.message) {
@@ -46,6 +46,7 @@ export const userPostFetch = user => {
             // This assumes your Rails API will return a JSON object with a key of
             // 'message' if there is an error
           } else {
+            console.log(data)
             dispatch(loginUser(data))
             
           }
