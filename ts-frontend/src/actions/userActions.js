@@ -15,9 +15,7 @@ export const userPostFetch = user => {
             )})
         .then(data => {
           if (data.message) {
-            // Here you should have logic to handle invalid creation of a user.
-            // This assumes your Rails API will return a JSON object with a key of
-            // 'message' if there is an error with creating the user, i.e. invalid username
+           throw(data.message)
           } else {
             dispatch(loginUser(data))
           }
@@ -42,9 +40,7 @@ export const userPostFetch = user => {
             )})
         .then(data => {
           if (data.message) {
-            // Here you should have logic to handle invalid login credentials.
-            // This assumes your Rails API will return a JSON object with a key of
-            // 'message' if there is an error
+            throw(data.message)
           } else {
             dispatch(loginUser(data))
             

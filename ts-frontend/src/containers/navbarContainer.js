@@ -19,23 +19,13 @@ const link = {
 
 
 class NavbarContainer extends Component {
-    // constructor(props){
-    //     super(props)
-    //     this.state = {
-    //         hover:false 
-    //     }
-    // }
-
-    // toggleHover = () => {
-    //     this.setState({hover: true})
-    //     this.link()
-    // }
 
     handleClick = (e) => {
-      e.preventDefault()
+      e.preventDefault() 
       localStorage.removeItem('token')
       this.props.logoutUser()
-      this.props.history.push('/')
+      window.location.replace('/')
+      
     }
 
 
@@ -44,7 +34,10 @@ class NavbarContainer extends Component {
         return (
         <>
           <div className='header-navbar'>
-              <img src={logo} className='logo' alt='logo' style={link}></img>
+              <img src={logo} 
+              className='logo'
+               alt='logo' 
+               style={link}></img>
             <NavLink
                to="/" exact
             className='link'

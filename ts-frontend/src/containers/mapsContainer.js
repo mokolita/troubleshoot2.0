@@ -18,7 +18,8 @@ const styling = {
 class MapsContainer extends Component {
 
     displayMarkers = () => {
-        return this.props.locations.map(loc =>  <Marker key={loc.id} id={loc.id} position={{
+        return this.props.locations.map(loc =>  
+        <Marker key={loc.id} id={loc.id} position={{
             lat: loc.latitude,
             lng: loc.longitude
         }}

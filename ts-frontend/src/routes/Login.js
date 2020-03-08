@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import {userLoginFetch} from '../actions/userActions';
 import '../styles/style.css'
 import '../styles/main.css'
@@ -10,6 +10,7 @@ class Login extends Component {
   state = {
     email: "",
     password: "",
+    toProfile: false
   }
 
   handleChange = event => {
@@ -21,11 +22,16 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.userLoginFetch(this.state)
-    this.props.history.push('/profile')
-  }
+      .then(() => this.setState(() => ({
+        toProfile: true
+      })))
+  } 
 
   render() {
-   
+    if (this.state.toProfile === true) {
+      return <Redirect to='/profile' />
+    }
+
     return( 
     <div>
         <div className="bg-contact3">

@@ -8,6 +8,7 @@ import Login from './routes/Login'
 import Signup from './routes/Register'
 import locationForm from './_components/locationForm'
 import newLocationForm from './_components/newLocationForm'
+import deleteLocation from './actions/deleteLocation'
 import { history } from './_helpers';
 import { PrivateRoute } from './_components'
 import {logoutUser} from './actions/userActions'
@@ -43,8 +44,9 @@ class App extends React.Component {
             <PrivateRoute exact path='/profile' component={Profile} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
-            <Route exact path='/locations/new' component={newLocationForm} />
-            <Route exact path='/locations/:locationID/edit' component={locationForm} />
+            <Route exact path='users/:userID/locations/new' component={newLocationForm} />
+            <Route exact path='users/:userID/locations/:locationID/edit' component={locationForm} />
+            <Route exact path='users/:userID/locations/:locationID' component={deleteLocation} />
             <Redirect from="*" to="/" />
             </Switch>
             

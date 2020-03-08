@@ -13,7 +13,7 @@ export const locationsReducer = (state = {locations: [], requesting: false}, act
                 requesting: false}
 
         case 'DELETE_LOCATION':
-            index = state.findIndex(user => user.id === action.id)
+            index = state.findIndex(location => location.id === action.id)
             return [...state.slice(0, index), ...state.slice(index + 1)]
             
         default: 

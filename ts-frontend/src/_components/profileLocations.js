@@ -28,7 +28,7 @@ export default class ProfileLocation extends Component{
                 <div className="container-contact3-form-btn">
                 <Link className="contact3-form-btn"
                 to={{
-                    pathname: `locations/${this.props.id}/edit`,
+                    pathname: `users/${this.props.user_id}/locations/${this.props.id}/edit`,
                     state: {
                         id: this.props.id,
                         name: this.props.name,
@@ -39,6 +39,14 @@ export default class ProfileLocation extends Component{
                 }} >
                 Update
                 </Link>
+                <Link className='contact3-form-btn'
+                    to={{
+                        pathname: `users/${this.props.user_id}/locations/${this.props.id}`,
+                        state: {
+                            id: this.props.id
+                        }
+                    }}>
+                Delete</Link>
                 </div>
                 <img src={placeholder} alt='' style={imgStyling}></img>
                 <p>{this.props.content}</p>

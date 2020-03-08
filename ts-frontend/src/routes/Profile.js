@@ -39,7 +39,7 @@ class Profile extends React.Component {
             <div className="container-contact3-form-btn">
               <Link className="contact3-form-btn" 
               to={{
-                pathname: `locations/new`,
+                pathname: `users/${this.props.users.user.id}/locations/new`,
                 state: {
                   user_id: this.props.users.user.id
                 }}}> 
