@@ -30,4 +30,3 @@ export default class LocationsContainer extends Component {
         
     }
 }
-

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom'
 import {connect} from 'react-redux';
 import {userPostFetch} from '../actions/userActions';
 
@@ -8,6 +9,7 @@ class Signup extends Component {
     last_name: "",
     email: "",
     password: "",
+    toProfile: false
   }
 
   handleChange = event => {
@@ -19,9 +21,16 @@ class Signup extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.userPostFetch(this.state)
+    .then(() => this.setState(() => ({
+      toProfile: true
+    })))
   }
 
   render() {
+    if (this.state.toProfile === true) {
+      return <Redirect to='/profile' />
+    }
+
     return (
         <div>
             <div className="bg-contact3">

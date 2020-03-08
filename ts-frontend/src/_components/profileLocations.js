@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import placeholder from '../styles/images/bg-01.jpg'
-import {  Link } from 'react-router-dom'
+import {  Link, withRouter } from 'react-router-dom'
 
 const styling = {
     margin: '10px',
@@ -19,7 +19,7 @@ const imgStyling = {
 //     fontWeight: '300'
 // }
 
-export default class ProfileLocation extends Component{
+class ProfileLocation extends Component{
   
     render(){
         return(
@@ -58,3 +58,4 @@ export default class ProfileLocation extends Component{
 
 
 }
+export default withRouter(ProfileLocation)

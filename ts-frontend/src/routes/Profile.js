@@ -34,7 +34,8 @@ class Profile extends React.Component {
         user_id={this.props.users.user.id}
         updateLocation={this.updateLocation}/> 
        )
-    
+
+
     return <div style={styling}>
             <div className="container-contact3-form-btn">
               <Link className="contact3-form-btn" 

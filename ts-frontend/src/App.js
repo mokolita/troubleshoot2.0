@@ -6,9 +6,9 @@ import Home from './routes/Home'
 import Profile from './routes/Profile'
 import Login from './routes/Login'
 import Signup from './routes/Register'
-import locationForm from './_components/locationForm'
-import newLocationForm from './_components/newLocationForm'
-import deleteLocation from './actions/deleteLocation'
+import LocationForm from './_components/locationForm'
+import NewLocationForm from './_components/newLocationForm'
+import DeleteLocation from './actions/deleteLocation'
 import { history } from './_helpers';
 import { PrivateRoute } from './_components'
 import {logoutUser} from './actions/userActions'
@@ -44,10 +44,10 @@ class App extends React.Component {
             <PrivateRoute exact path='/profile' component={Profile} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
-            <Route exact path='users/:userID/locations/new' component={newLocationForm} />
-            <Route exact path='users/:userID/locations/:locationID/edit' component={locationForm} />
-            <Route exact path='users/:userID/locations/:locationID' component={deleteLocation} />
-            <Redirect from="*" to="/" />
+            <Route exact path='/users/:userid/locations/new' component={NewLocationForm} />
+            <Route exact path='/users/:userid/locations/:locationid/edit' component={LocationForm} />
+            <Route exact path='/users/:userID/locations/:locationID' component={DeleteLocation} />
+            
             </Switch>
             
         </div>
@@ -63,7 +63,4 @@ const mapDispatchToProps = dispatch => ({
   getProfileFetch: () => dispatch(getProfileFetch())
 })
 
-export default connect(null, mapDispatchToProps)(App);
-
-
-
+export default connect(null, mapDispatchToProps)(App)

@@ -3,6 +3,7 @@
 export const fetchUpdateLocations = data => {
     const id = data.id
     const token = localStorage.getItem('token')
+    console.log(token)
     return (dispatch) => {
        fetch(`http://localhost:3000/locations/${id}`,{
            method: "PUT",

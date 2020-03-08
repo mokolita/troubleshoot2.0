@@ -74,7 +74,3 @@ const mapDispatchToProps = dispatch => ({
 export default withRouter(connect(null, mapDispatchToProps)(Login))
 
   
-
-
-
-  

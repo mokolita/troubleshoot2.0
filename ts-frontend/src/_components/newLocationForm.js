@@ -40,6 +40,7 @@ class NewLocationForm extends React.Component {
     }
 
     render() {
+        console.log('new location form')
         return (
             <div className="bg-contact3">
 

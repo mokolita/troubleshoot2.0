@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { fetchUpdateLocations } from '../actions/fetchUpdateLocations'
+
 class LocationForm extends React.Component {
 
     constructor(props){
@@ -11,7 +12,8 @@ class LocationForm extends React.Component {
             name: this.props.location.state.name,
             content: this.props.location.state.content,
             address: this.props.location.state.address,
-            user_id: this.props.location.state.user_id
+            user_id: this.props.location.state.user_id,
+            toHome: false
         }
     }
 
@@ -26,6 +28,7 @@ class LocationForm extends React.Component {
             user_id
         }
         this.props.update(data)
+        this.props.history.push('/')
     }
 
     handleChange = (e) => {
@@ -38,6 +41,7 @@ class LocationForm extends React.Component {
     }
 
     render() {
+        console.log(this.state)
         return (
             <div className="bg-contact3">
 
