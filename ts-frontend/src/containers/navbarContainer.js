@@ -35,6 +35,7 @@ class NavbarContainer extends Component {
       e.preventDefault()
       localStorage.removeItem('token')
       this.props.logoutUser()
+      this.props.history.push('/')
     }
 
 
@@ -52,8 +53,6 @@ class NavbarContainer extends Component {
                 backgroundColor: '#501b1d',
                 color: '#dbaa5c'
                 }}
-            //onMouseEnter={this.toggleHover}
-            //onMouseLeave={this.toggleHover}
             >Home</NavLink>
             <NavLink
               exact to="/profile"
@@ -63,8 +62,6 @@ class NavbarContainer extends Component {
                 backgroundColor: '#501b1d',
                 color: '#dbaa5c'
                 }}
-              //onMouseEnter={this.toggleHover}
-              //onMouseLeave={this.toggleHover}
             >Profile</NavLink>
             <NavLink
               exact to="/login"
@@ -74,8 +71,6 @@ class NavbarContainer extends Component {
                 color: '#dbaa5c'
                 }}
               className='link link-style'
-              //onMouseEnter={this.toggleHover}
-              //onMouseLeave={this.toggleHover}
             >Login</NavLink>
             <NavLink
               exact to="/signup"
@@ -85,16 +80,10 @@ class NavbarContainer extends Component {
                 color: '#dbaa5c'
                 }}
               className='link link-style'
-              //onMouseEnter={this.toggleHover}
-              //onMouseLeave={this.toggleHover}
             >Signup</NavLink>
             <NavLink exact to="/" 
             onClick={this.handleClick} 
             style={link}
-            // activeStyle={{
-            //   backgroundColor: '#501b1d',
-            //   color: '#dbaa5c'
-            // }}
             className='link link-style'>Log Out</NavLink>
           </div>
         </>

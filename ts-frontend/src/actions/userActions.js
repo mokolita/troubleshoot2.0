@@ -46,7 +46,6 @@ export const userPostFetch = user => {
             // This assumes your Rails API will return a JSON object with a key of
             // 'message' if there is an error
           } else {
-            console.log(data)
             dispatch(loginUser(data))
             
           }
@@ -62,17 +61,18 @@ export const userPostFetch = user => {
           method: "GET",
           headers: {
             'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Authorization': `Bearer ${token}`
+             Accept: 'application/json',
+            'Authorization': `${token}`
           }
         })
           .then(resp => resp.json())
           .then(data => {
-            if (data.message) {
+           if (data.message) {
               // An error will occur if the token is invalid.
               // If this happens, you may want to remove the invalid token.
               localStorage.removeItem("token")
             } else {
+              console.log(data)
               dispatch(loginUser(data))
             }
           })

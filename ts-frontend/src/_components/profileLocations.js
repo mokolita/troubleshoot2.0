@@ -28,7 +28,7 @@ export default class ProfileLocation extends Component{
                 <div className="container-contact3-form-btn">
                 <Link className="contact3-form-btn"
                 to={{
-                    pathname: `locations/${this.props.id}`,
+                    pathname: `locations/${this.props.id}/edit`,
                     state: {
                         id: this.props.id,
                         name: this.props.name,

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import Location from '../presentationalComponents/profileLocations'
+import Location from '../_components/profileLocations'
  
 const styling = {
   marginTop: '50px',
@@ -37,9 +37,14 @@ class Profile extends React.Component {
     
     return <div style={styling}>
             <div className="container-contact3-form-btn">
-              <button className="contact3-form-btn" onClick={console.log('NEW form!')}>
+              <Link className="contact3-form-btn" 
+              to={{
+                pathname: `locations/new`,
+                state: {
+                  user_id: this.props.users.user.id
+                }}}> 
               Add New Location
-              </button>
+              </Link>
             </div>
             {mappedUserLocations}
           </div>

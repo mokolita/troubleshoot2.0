@@ -21,7 +21,7 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault()
     this.props.userLoginFetch(this.state)
-    .then(() => this.props.history.push('/profile'))
+    this.props.history.push('/profile')
   }
 
   render() {
@@ -62,7 +62,7 @@ class Login extends Component {
 
 
 const mapDispatchToProps = dispatch => ({
-  userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo))
+  userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo)),
 })
 
 export default withRouter(connect(null, mapDispatchToProps)(Login))

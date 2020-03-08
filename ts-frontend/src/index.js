@@ -23,6 +23,7 @@ WebFont.load({
     }
 })
 
+
 ReactDOM.render(
     <Provider store={store}>  
         <App />
