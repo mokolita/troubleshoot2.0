@@ -1,4 +1,4 @@
-export default function deleteLocation(id) {
+export default function DeleteLocation(id) {
   const token = localStorage.getItem('token')
 return (dispatch) => {
    fetch(`http://localhost:3000/locations/${id}`,{

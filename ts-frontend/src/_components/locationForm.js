@@ -31,7 +31,7 @@ class LocationForm extends React.Component {
         this.props.history.push('/')
     }
 
-    handleChange = (e) => {
+    handleChange = (e)=> {
         e.persist()
         let value = e.target.value
         this.setState({
@@ -39,6 +39,7 @@ class LocationForm extends React.Component {
         })
         
     }
+
 
     render() {
         console.log(this.state)
@@ -62,7 +63,7 @@ class LocationForm extends React.Component {
                             <div className="wrap-input3 validate-input">
                                 <label htmlFor="content">Tell us about your spot:</label>
                                 <textarea form='add-this.props.location-form' className="input3" name="content"
-                                    onChange={(e) => this.handleChange(e)}
+                                    onChange={this.handleChange}
                                     value={this.state.content ? this.state.content : ''} required >
                                 </textarea>
                                 <span className="focus-input3"></span>
@@ -71,7 +72,7 @@ class LocationForm extends React.Component {
                             <div className="wrap-input3 validate-input" data-validate="Address is required">
                                 <label htmlFor="address">Address</label>
                                 <input className="input3" type="text" name="address" id="address"
-                                    onChange={(e) => this.handleChange(e)}
+                                    onChange={this.handleChange}
                                     value={this.state.address ? this.state.address : ''} ></input>
                                 <span className="focus-input3"></span>
                             </div>

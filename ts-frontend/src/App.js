@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import NavbarContainer from './containers/navbarContainer'
 import Home from './routes/Home'
@@ -47,7 +47,6 @@ class App extends React.Component {
             <Route exact path='/users/:userid/locations/new' component={NewLocationForm} />
             <Route exact path='/users/:userid/locations/:locationid/edit' component={LocationForm} />
             <Route exact path='/users/:userID/locations/:locationID' component={DeleteLocation} />
-            
             </Switch>
             
         </div>

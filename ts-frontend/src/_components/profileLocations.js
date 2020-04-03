@@ -39,14 +39,8 @@ class ProfileLocation extends Component{
                 }} >
                 Update
                 </Link>
-                <Link className='contact3-form-btn'
-                    to={{
-                        pathname: `users/${this.props.user_id}/locations/${this.props.id}`,
-                        state: {
-                            id: this.props.id
-                        }
-                    }}>
-                Delete</Link>
+                <span className='contact3-form-btn' onClick={()=> this.props.deleteLocation(this.props.id)}>
+                Delete</span>
                 </div>
                 <img src={placeholder} alt='' style={imgStyling}></img>
                 <p>{this.props.content}</p>

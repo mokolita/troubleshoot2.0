@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Location from '../_components/profileLocations'
+import DeleteLocation from '../actions/deleteLocation'
  
 const styling = {
   marginTop: '50px',
@@ -32,7 +33,8 @@ class Profile extends React.Component {
         content={l.content}
         address={l.address} 
         user_id={this.props.users.user.id}
-        updateLocation={this.updateLocation}/> 
+        updateLocation={this.updateLocation}
+        deleteLocation={this.DeleteLocation(l.id)}/> 
        )
 
 
