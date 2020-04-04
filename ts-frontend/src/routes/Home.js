@@ -6,9 +6,6 @@ import MapsContainer from '../containers/mapsContainer'
 import NavbarContainer from '../containers/navbarContainer'
 import { fetchLocations } from '../actions/fetchLocations'
 
-const styling = {
-  marginTop: '100px'
-}
 
 class Home extends React.Component {
   
@@ -18,10 +15,16 @@ class Home extends React.Component {
   render() {
     
     return(
-      <div style={styling}>
+      <div>
         <NavbarContainer />
+        <div id='page-container'>
+          <body>
+            <main>
         <LocationsContainer locations={this.props.locations.locations} />
         <MapsContainer locations={this.props.locations.locations}/>
+          </main>
+        </body>
+        </div>
       </div>
     )
   }
