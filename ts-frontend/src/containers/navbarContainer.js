@@ -40,7 +40,6 @@ class NavbarContainer extends Component {
               <img src={logo} 
               className='logo'
                alt='logo' 
-               className='navbar-link' 
                >  
                </img>
             <li>
