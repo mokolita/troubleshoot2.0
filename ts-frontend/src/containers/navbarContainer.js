@@ -2,19 +2,20 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/style.css'
 import logo from '../styles/images/Troubleshoot (3).png'
+import '../styles/style.css'
 import {logoutUser} from '../actions/userActions'
 import { connect } from 'react-redux'
 
-const link = {
-    float: 'left',
-    display: 'block',
-    color: '#501b1d',
-    textAlign: 'center',
-    padding: '25px 16px',
-    textDecoration: 'none',
-    fontFamily: '"Barlow Thin", sans-serif',
-    backgroundColor: '#bcd9bb' 
-}  
+// const link = {
+//     float: 'left',
+//     display: 'block',
+//     color: '#501b1d',
+//     textAlign: 'center',
+//     padding: '25px 16px',
+//     textDecoration: 'none',
+//     fontFamily: '"Barlow Thin", sans-serif',
+//     backgroundColor: '#bcd9bb' 
+// }  
 
 
 
@@ -33,51 +34,66 @@ class NavbarContainer extends Component {
     render() {
         return (
         <>
-          <div className='header-navbar'>
+          <div>
+            <header>
+              <div>
               <img src={logo} 
               className='logo'
                alt='logo' 
-               style={link}></img>
-            <NavLink
+               className='navbar-link' 
+               >  
+               </img>
+            <li>
+              <NavLink
                to="/" exact
-            className='link'
-            style={link} 
+            className='navbar-link' 
             activeStyle={{
                 backgroundColor: '#501b1d',
                 color: '#dbaa5c'
                 }}
             >Home</NavLink>
+            </li>
+            <li>
             <NavLink
               exact to="/profile"
-              className='link'
-              style={link} 
+              className='navbar-link' 
               activeStyle={{
                 backgroundColor: '#501b1d',
                 color: '#dbaa5c'
                 }}
             >Profile</NavLink>
+            </li>
+            <li>
             <NavLink
               exact to="/login"
-              style={link} 
+              className='navbar-link' 
               activeStyle={{
                 backgroundColor: '#501b1d',
                 color: '#dbaa5c'
                 }}
-              className='link link-style'
             >Login</NavLink>
+            </li>
+            <li>
             <NavLink
               exact to="/signup"
-              style={link} 
+              className='navbar-link' 
               activeStyle={{
                 backgroundColor: '#501b1d',
                 color: '#dbaa5c'
                 }}
-              className='link link-style'
             >Signup</NavLink>
+            </li><li>
             <NavLink exact to="/" 
             onClick={this.handleClick} 
-            style={link}
-            className='link link-style'>Log Out</NavLink>
+            activeStyle={{
+              backgroundColor: '#501b1d',
+              color: '#dbaa5c'
+            }}
+            className='navbar-link' 
+            >Log Out</NavLink>
+            </li>
+            </div>
+            </header>
           </div>
         </>
         )

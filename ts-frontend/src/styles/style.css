@@ -1,4 +1,4 @@
-header ul {
+header div {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ header li {
   float: left;
 }
 
-header li a {
+.navbar-link {
   display: block;
   color: #501b1d;
   text-align: center;
@@ -27,10 +27,6 @@ header li a {
 header li a:hover {
   background-color:#501b1d;
   color: #dbaa5c;
-}
-
-header .active {
-  background-color: #4CAF50;
 }
 
 .logo {
