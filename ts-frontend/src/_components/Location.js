@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import placeholder from '../styles/images/bg-01.jpg'
+import '../styles/style.css'
 
 const styling = {
     margin: '10px',
@@ -22,9 +23,9 @@ export default class Location extends Component{
   
     render(){
         return(
-            <div style={styling}>
+            <div>
                 <h3>{this.props.name}</h3>
-                    <p style={userStyling}>Posted by: {this.props.user}</p>
+                    <p className='author'>Posted by: {this.props.user}</p>
                 
                 <img src={placeholder} alt='' style={imgStyling}></img>
                 <p>{this.props.address}</p>

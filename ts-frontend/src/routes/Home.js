@@ -5,6 +5,7 @@ import LocationsContainer from '../containers/locationsContainer'
 import MapsContainer from '../containers/mapsContainer'
 import NavbarContainer from '../containers/navbarContainer'
 import { fetchLocations } from '../actions/fetchLocations'
+import '../styles/style.css'
 
 
 class Home extends React.Component {

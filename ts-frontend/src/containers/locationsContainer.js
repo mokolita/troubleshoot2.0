@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Location from '../_components/Location'
+import '../styles/style.css'
 
 const styling = {
     display: 'flex', 
@@ -12,6 +13,7 @@ export default class LocationsContainer extends Component {
     render() {
 
         const mappedLocations =  this.props.locations.map(loc => 
+        <li className="card">
         <Location key={loc.id} 
         name={loc.name} 
         content={loc.content} 
@@ -19,12 +21,15 @@ export default class LocationsContainer extends Component {
         address={loc.address} 
         lat={loc.latitude} 
         long={loc.longitude}/>
+        </li>
         )
 
         return(
 
             <div style={styling}>
+                <ul className='card-list'>
                 {mappedLocations}
+                </ul>
             </div>
         ) 
         
